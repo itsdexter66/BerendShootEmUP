@@ -1,16 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
-public class ScoreManager : MonoBehaviour {
+public class ScoreManager : MonoBehaviour
+{
+    public static int score;        // The player's score.
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    Text text;                      // Reference to the Text component.
+
+
+    void Awake()
+    {
+        // Set up the reference.
+        text = GetComponent<Text>();
+
+        // Reset the score.
+        score = 0;
+    }
+
+
+    void Update()
+    {
+        // Set the displayed text to be the word "Score" followed by the score value.
+        text.text = "Score: " + score;
+    }
 }
